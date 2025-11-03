@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to BizzarBazzar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to BizzarBazzar!</h1>
+            <p class="lead">Discover unique projects, innovative products, and connect with creators from around the globe.</p>
+            <hr class="my-4">
+            <p>Choose your role:</p>
+            <div class="d-flex justify-content-center">
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg mr-3">User Registration</a>
+                <a href="{{ url_for('admin_register') }}" class="btn btn-secondary btn-lg">Admin Registration</a>
+            </div>
+            <hr class="my-4">
+            <p>Already have an account?</p>
+            <div class="d-flex justify-content-center">
+                <a href="{{ url_for('login') }}" class="btn btn-success btn-lg mr-3">User Login</a>
+                <a href="{{ url_for('admin_login') }}" class="btn btn-warning btn-lg">Admin Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

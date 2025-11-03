@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Delete User - My Website{% endblock %}
+{% block main_content %}
+<div class="container">
+    <h1>Delete User</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('delete_user') }}" method="POST">
+        {{ form.hidden_tag() }}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="user_id" id="user_{{ user.id }}" value="{{ user.id }}">
+                            <label class="form-check-label" for="user_{{ user.id }}">
+                                Delete
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-danger">Delete Selected User</button>
+    </form>
+</div>
+{% endblock %}

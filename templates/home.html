@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<header class="text-center my-4">
+    <a href="{{ url_for('home') }}">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Your Brand Logo" class="img-fluid" style="max-height: 100px;">
+    </a>
+</header>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="how-it-works-section">
+                <h2>How to Kickstart Your Project</h2>
+                <ol>
+                    <li><strong>Conceptualize Your Idea:</strong> Everything starts with a great idea. Define what you want to create or achieve.</li>
+                    <li><strong>Plan Your Campaign:</strong> Outline your goals, budget, and timeline. What makes your project stand out?</li>
+                    <li><strong>Launch with BizzarBazzar:</strong> Use our platform to present your project to the world. We provide the tools you need to connect with supporters and gain momentum.</li>
+                    <li><strong>Reach Your Goals:</strong> With the support of our community, watch your project take off. We're here to help every step of the way.</li>
+                </ol>
+            </div>
+        </div>
+
+    <div class="reviews-section my-5">
+        <h2>Latest Reviews</h2>
+        <ul class="list-unstyled">
+            {% for review in review_data %}
+            <li class="mb-3"><strong>{{ review['user'] }}:</strong> {{ review['review'] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

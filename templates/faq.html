@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}FAQ - Bizzar Bazzar{% endblock %}
+
+{% block main_content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Frequently Asked Questions</h1>
+    <div id="faqAccordion">
+        {% for question, answer in questions.items() %}
+        <div class="card">
+            <div class="card-header" id="heading{{ loop.index }}">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="{% if loop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ loop.index }}">
+                        {{ question }}
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapse{{ loop.index }}" class="collapse{% if loop.first %} show{% endif %}" aria-labelledby="heading{{ loop.index }}" data-parent="#faqAccordion">
+                <div class="card-body">
+                    {{ answer }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

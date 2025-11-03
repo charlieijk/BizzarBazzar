@@ -1,0 +1,174 @@
+body {
+    background-color: #f0f0f0;
+    background-image: linear-gradient(45deg, #55aaee 25%, #ee55aa 25%, #ee55aa 50%, #55aaee 50%, #55aaee 75%, #ee55aa 75%, #ee55aa 100%);
+    background-size: 100px 100px;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input,
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.checkout-table,
+.action-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.checkout-table th,
+.action-table th,
+.checkout-table td,
+.action-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.table-header th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table-row td,
+.action-table td {
+    border-bottom: 1px solid #ccc;
+}
+
+.action-table a {
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.action-table a.btn-primary {
+    background-color: #007bff;
+}
+
+.action-table a.btn-secondary {
+    background-color: #6c757d;
+}
+
+.play-game-btn {
+    display: block; 
+    width: auto; 
+    margin: 20px auto; 
+    background-color: #28a745;
+    color: #fff;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 10px 20px; 
+    text-align: center; 
+}
+
+.play-game-btn:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 600px) {
+    .form-container,
+    .checkout-table,
+    .action-table,
+    .table-header th,
+    .table-row td {
+        width: 100%;
+        padding: 10px;
+    }
+    .play-game-btn {
+        width: 100%; 
+    }
+}
+
+.bonus-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 20px 0; 
+}
+.bonus-table th, .bonus-table td {
+    border: 1px solid #e0e0e0; 
+    text-align: left;
+    padding: 12px 8px;
+    color: #333;
+}
+.bonus-table th {
+    background-color: #fafafa; 
+    color: #222; 
+    font-weight: 600; 
+}
+
+
+.objectives, .category, .traits, .characteristics {
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 0.9em; 
+    font-weight: 500; 
+}
+.objectives { background-color: #e7f4e4; }
+.category { background-color: #eef5fa; }
+.traits { background-color: #fff3cd; }
+.characteristics { background-color: #ede7f6; }
+
+.breakdown-item {
+    display: block;
+    margin-top: 5px; 
+    margin-left: 20px;
+    font-style: italic; 
+}
+
+#thankYouMessage {
+    background-color:  linear-gradient(45deg, #55aaee 25%, #ee55aa 25%, #ee55aa 50%, #55aaee 50%, #55aaee 75%, #ee55aa 75%, #ee55aa 100%);
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    font-size: 30px;
+    color: #336ef7; 
+    text-align: center;
+}
+#theoffer{ 
+    display: none;
+}

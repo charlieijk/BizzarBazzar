@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Bizzar Bazzar Reviews{% endblock %}
+
+{% block main_content %}
+<div class="container my-4">
+    <h1 class="text-center mb-4">Bizzar Bazzar Reviews</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.user.label(class="form-label") }}
+            {{ form.user(class="form-control", placeholder="Your name") }}
+        </div>
+        <div class="form-group">
+            {{ form.review.label(class="form-label") }}
+            {{ form.review(class="form-control", placeholder="Write your review here", rows="4") }}
+        </div>
+        {{ form.submit(class="btn btn-primary btn-block") }}
+    </form>
+
+    <h2 class="mt-4">Submitted Reviews:</h2>
+    {% if reviews %}
+        {% for review in reviews %}
+        <div class="review">
+            <p><strong>{{ review.user }}</strong>: {{ review.review }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No reviews yet. Be the first to submit a review!</p>
+    {% endif %}
+</div>
+{% endblock %}

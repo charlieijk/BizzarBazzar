@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block head %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+{% endblock %}
+{% block main_content %}
+<h1>Checkout</h1>
+
+{% if checkout %}
+<table class="checkout-table">
+    <thead>
+        <tr class="table-header">
+            <th>Bizzar ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Reward Pledge Amount</th>
+            <th>Objectives</th>
+            <th>Category</th>
+            <th>Traits</th>
+            <th>Characteristics</th>
+            <th>Actions</th>
+
+    </thead>
+    <tbody>
+        {% for item in checkout %}
+        <tr class="table-row">
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>{{ obj_dict[item[4]] }}</td>
+            <td>{{ some_dict[item[5]] }}</td>
+            <td>{{ traits_dict[item[6]] }}</td>
+            <td>{{ character_dict[item[7]] }}</td>
+            <td>
+                <a href="{{ url_for('edit_bizzar', bizzar_id=item[0]) }}" class="btn btn-primary">Edit Bizzar</a>
+                <a href="{{ url_for('thegame', checkout=checkout) }}" class="btn btn-success">Play The Game</a>
+                <a href="{{ url_for('marketplace', checkout=checkout) }}" class="btn btn-danger">Marketplace</a>
+                <a href="{{ url_for('remove_bizzar', bizzar_id=item[0]) }}" class="btn btn-warning">Remove Bizzar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% else %}
+<p>Your checkout is empty!</p>
+{% endif %}
+
+{% endblock %}

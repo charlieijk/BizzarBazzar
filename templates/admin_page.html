@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - BizzarBazzar{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Admin Dashboard</h1>
+    <p>Manage your BizzarBazzar platform efficiently.</p>
+    <div class="list-group">
+        {% for route in routes %}
+        <a href="{{ url_for(route['path']) }}" class="list-group-item list-group-item-action">{{ route['name'] }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

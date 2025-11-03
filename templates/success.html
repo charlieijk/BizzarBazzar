@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Investment Success{% endblock %}
+
+{% block main_content %}
+<div class="container">
+    <h1>Investment Confirmation</h1>
+    <p>Thank you, <strong>{{ investor }}</strong>, for your investment.</p>
+    <p>Total Investment Amount: <strong>${{ total_investment }}</strong></p>
+</div>
+{% endblock %}

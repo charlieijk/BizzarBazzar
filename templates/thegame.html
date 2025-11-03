@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}The Game{% endblock %}
+
+{% block main_content %}
+<div class="container mt-4">
+    <h1>Welcome to The Game!</h1>
+    <a href="{{ url_for('thephase') }}" class="btn btn-primary mt-3 mb-3">Go to The Phase</a>
+    <h2>Individual Bonuses:</h2>
+
+    <table class="bonus-table">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Reward Pledge Amount</th>
+            <th>Objectives</th>
+            <th>Category</th>
+            <th>Traits</th>
+            <th>Characteristics</th>
+        </tr>
+        <tr>
+            <td rowspan="2">{{ checkout[1] }}</td>
+            <td rowspan="2">{{ checkout[2] }}</td>
+            <td rowspan="2">{{ checkout[3] }}</td>
+            <td>{{ obj_dict[checkout[4]] }}</td>
+            <td>{{ some_dict[checkout[5]] }}</td>
+            <td>{{ traits_dict[checkout[6]] }}</td>
+            <td>{{ character_dict[checkout[7]] }}</td>
+        </tr>
+        <tr>
+            <td>{{ bonus_breakdown[4] }}</td>
+            <td>{{ bonus_breakdown[5] }}</td>
+            <td>{{ bonus_breakdown[6] }}</td>
+            <td>{{ bonus_breakdown[7] }}</td>
+        </tr>
+    </table>
+    
+    
+
+    {% if bonus is not none %}
+    <h2>Total Bonus Earned:</h2>
+    <p>{{ total_bonus }}</p>
+    {% endif %}
+</div>
+{% endblock %}

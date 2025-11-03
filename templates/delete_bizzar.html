@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Delete Bizzar - My Website{% endblock %}
+{% block main_content %}
+<div class="container">
+    <h1>Delete Bizzar</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('delete_bizzar') }}" method="post">
+        {{ form.hidden_tag() }}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bizzar in bizzars %}
+                <tr>
+                    <td>{{ bizzar['bizzar_id'] }}</td>
+                    <td>{{ bizzar['title'] }}</td>
+                    <td>
+                        <button type="submit" name="bizzar_id" value="{{ bizzar['bizzar_id'] }}" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+
+{% if session.get("checkout") %}
+<div class="container">
+    <h2>Checkout Details</h2>
+    <p>Bizzar ID: {{ session["checkout"][0] }}</p>
+    <p>Title: {{ session["checkout"][1] }}</p>
+</div>
+{% endif %}
+
+{% endblock %}

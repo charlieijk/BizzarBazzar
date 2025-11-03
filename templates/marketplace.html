@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Marketplace{% endblock %}
+
+{% block main_content %}
+<div class="container my-5">
+    <h1>{{ welcome_heading }}</h1>
+
+    {% if project_title %}
+    <div class="mt-3">
+        <p><strong>Selected Project:</strong> {{ project_title }}</p>
+    </div>
+    {% endif %}
+    <h2>{{ session['checkout'][0][1] }}</h2>
+
+
+    <p>Here are your options:</p>
+
+    <form method="post" novalidate action="{{ url_for('marketplace_info') }}" class="mx-auto" style="max-width: 600px;">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+
+            {{ form.marketplace(class="form-control") }}
+            {% for error in form.marketplace.errors %}
+            <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+
+        <div class="text-center">
+            {{ form.submit(class="btn btn-primary btn-lg") }}
+        </div>
+
+        
+    </form>
+</div>
+{% endblock %}
+
